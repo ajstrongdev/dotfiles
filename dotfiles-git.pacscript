@@ -1,7 +1,7 @@
 pkgname="dotfiles-git"
 arch=("amd64" "arm64")
 pkgver="1.0.0"
-source("https://github.com/ajstrongdev/dotfiles.git")
+source=("https://github.com/ajstrongdev/dotfiles.git")
 depends=(
 	"sway" "sway-backgrounds" "sway-notification-center" "swaybg" "swayidle" "swaylock" "rofi" "waybar" "grimshot" "thunar"
 )
@@ -19,21 +19,15 @@ prepare() {
 }
 
 package() {
-	cp -r "dotfiles/sway" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/rofi" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/alacritty" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/nvim" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/swaylock" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/swaync" "${pkgdir}/etc/skel/.config"
-	cp -r "dotfiles/waybar" "${pkgdir}/etc/skel/.config"
- }
+	local configs=("sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar")
+	for i in "${configs}"; do
+		cp -r "dotfiles/$i" "${pkgdir}/etc/skel/.config"
+	done
+}
 
 post_install() {
-	cp -r "dotfiles/sway" "${homedir}/.config"
-	cp -r "dotfiles/rofi" "${homedir}/.config"
-	cp -r "dotfiles/alacritty" "${homedir}/.config"
-	cp -r "dotfiles/nvim" "${homedir}/.config"
-	cp -r "dotfiles/swaylock" "${homedir}/.config"
-	cp -r "dotfiles/swaync" "${homedir}/.config"
-	cp -r "dotfiles/waybar" "${homedir}/.config"
+	local configs=("sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar")
+	for i in "${configs}"; do
+		cp -r "/etc/skel/.config/$i" "${homedir}/.config"
+	done
 }
