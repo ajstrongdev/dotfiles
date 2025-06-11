@@ -13,6 +13,6 @@ case "$chosen" in
     swaymsg exit
     ;;
   "Shutdown")
-	  sudo shutdown now
+	  shutdown now
 	  ;;
 esac
