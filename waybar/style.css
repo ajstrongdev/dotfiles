@@ -1,0 +1,51 @@
+@import "rose-pine.css";
+
+* {
+  font-family: JetbrainsMono Nerd Font, monospace;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @base;
+  color: @rose;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background: transparent;
+  color: @rose;
+}
+
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#battery,
+/* #window, */
+#power,
+#workspaces {
+  background: #1f1d2e;
+  padding: 8 10px;
+  margin: 4 4px;
+  background-color: @overlay;  
+  color: @rose;
+}
+
+#battery.charging {
+  color: #9ccfd8;
+}
+
+#battery.critical {
+  color: #eb6f92;
+}
+
+#pulseaudio.muted {
+  color: #6e6a86;
+}
+
