@@ -19,15 +19,13 @@ prepare() {
 }
 
 package() {
-	local configs=("sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar")
-	for i in "${configs}"; do
-		cp -r "dotfiles/$i" "${pkgdir}/etc/skel/.config"
-	done
+    for i in "sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar"; do
+        cp -r "dotfiles/${i}" "${pkgdir}/etc/skel/.config"
+    done
 }
 
 post_install() {
-	local configs=("sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar")
-	for i in "${configs}"; do
-		cp -r "/etc/skel/.config/$i" "${homedir}/.config"
-	done
+    for i in "sway" "rofi" "alacritty" "nvim" "swaylock" "swaync" "waybar"; do
+        cp -r "/etc/skel/.config/${i}" "${homedir}/.config"
+    done
 }
