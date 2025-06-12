@@ -11,6 +11,7 @@ exec --no-startup-id swaybg -m fill -i ~/.config/sway/howls-castle.jpg
 # Notifications
 exec swaync
 exec --no-startup-id waybar
+include /etc/sway/config-vars.d/*
 
 # Sway input mapping:
 input * {
