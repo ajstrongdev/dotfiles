@@ -8,7 +8,7 @@ include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*
 # Load configs, applets, docks etc.
 exec --no-startup-id nm-applet
-exec --no-startup-id swaybg -m fill -i ~/.config/sway/howls-castle.jpg
+exec swaybg -m fill -i ~/.config/sway/howls-castle.jpg
 # Notifications
 exec swaync
 exec --no-startup-id waybar
